@@ -1,20 +1,26 @@
-import React from 'react';
+import {React, useContext} from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import CartContext from '../helper/CartContext';
 
 
 
  const Left = () => {
-
+  const { cart, setCart } = useContext(CartContext);
+ 
 
   const addToCart = () => {
   const fruit = ["Apple", "Orange", "Mango", "Banana", "Guava"];
-  const index = Math.floor(Math.random() * 4)
-
+  const index = Math.floor(Math.random() * 4);
+     setCart({
+       cart: [...cart, fruit[index]]
+     })
   }
 
      const removeFromCart = () => {
-     
+          setCart({
+       cart: []
+     })
   }
 
 

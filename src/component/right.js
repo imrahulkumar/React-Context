@@ -1,15 +1,16 @@
-import React from 'react'
+import {React, useContext, useState} from 'react'
 import List from '@mui/material/List';
 import ListItemText from '@mui/material/ListItemText';
 import ListItem from '@mui/material/ListItem';
+import CartContext from '../helper/CartContext';
 
 
 
 
 const Right = () => {
-
- const [dense, setDense] = React.useState(false);
-  const [secondary, setSecondary] = React.useState(false);
+  const { cart } = useContext(CartContext);
+ const [dense, setDense] = useState(false);
+  const [secondary, setSecondary] = useState(false);
 
   const cartArr = ['apple', 'banana']
 
@@ -17,7 +18,7 @@ const Right = () => {
   return (
    <List dense={dense}>
      {
-      cartArr.map((item, index)=> <ListItem>
+      cart.map((item, index)=> <ListItem>
                   <ListItemText
                     primary={item}
                     key={index}
